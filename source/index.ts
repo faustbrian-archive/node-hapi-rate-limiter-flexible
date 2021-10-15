@@ -48,9 +48,19 @@ export const plugin = {
 
     server.ext({
       async method(request, h) {
+        let remoteAddress: string = request.info.remoteAddress;
+
+        try {
+          if (request.headers['x-forwarded-for']) {
+            remoteAddress = request.headers['x-forwarded-for'].split(',')[0];
+          }
+        } catch {
+          remoteAddress = request.info.remoteAddress;
+        }
+
         try {
           const result: RateLimitResult = await rateLimiter.consume(
-            request.info.remoteAddress,
+            remoteAddress,
             1,
           );
 

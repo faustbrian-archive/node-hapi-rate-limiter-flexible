@@ -1,6 +1,6 @@
 {
   "name": "@faustbrian/node-hapi-rate-limiter-flexible",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An integration for node-rate-limiter-flexible into hapi.js",
   "homepage": "https://github.com/faustbrian/node-hapi-rate-limiter-flexible",
   "bugs": {
